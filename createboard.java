@@ -1,102 +1,38 @@
-
 package com.company;
 
 import java.util.Scanner;
 
 public class createboard {
 
-    public static char[] board;
+    public static char[] board = new char[10];
 
     public static void main(String[] args) {
         createboard game = new createboard();
         char[] board = new char[10];
 
-        game.getBoard();
-        game.showBoard();
-        System.out.println("Enter the symbol X or 0");
+
         Scanner scan = new Scanner(System.in);
-        char player = scan.next().charAt(0);
-        game.inputboard(player);
 
-        System.out.println("player " + player);
+     
+        game.moveboard();
+      
     }
 
-    public int inputboard(int player) {
-        char computer;
-        if (player == 'X') {
-            computer = 'O';
-        } else {
-            computer = 'X';
-        }
-        System.out.println("Computer " + computer);
+    public static void moveboard() {
 
-        return computer;
+        Scanner sc = new Scanner(System.in);
 
-    }
-
-    public static void showBoard() {
-        System.out.println(board[1] + " | " + board[2] + " | " + board[3]);
-        System.out.println("----------");
-        System.out.println(board[4] + " | " + board[5] + " | " + board[6]);
-        System.out.println("----------");
-        System.out.println(board[7] + " | " + board[8] + " | " + board[9]);
-    }
-
-    static char[] getBoard() {
+        System.out.println("Enter the position you want to put X or 0");
+        int position = sc.nextInt();
+        System.out.println("Enter the input X or 0");
+        char value = sc.next().charAt(0);
         for (int i = 1; i < 10; i++) {
-            board[i] = ' ';
+            if (i == position && board[i] == ' ') {
+                board[i] = value;
+                break;
+            }
+            else {
+                System.out.println("incorrect");
+            }
         }
-        return board;
     }
-}
-
-package com.company;
-
-import java.util.Scanner;
-
-public class createboard {
-
-    public static char[] board;
-
-    public static void main(String[] args) {
-        createboard game = new createboard();
-        char[] board = new char[10];
-
-        game.getBoard();
-        game.showBoard();
-        System.out.println("Enter the symbol X or 0");
-        Scanner scan = new Scanner(System.in);
-        char player = scan.next().charAt(0);
-        game.inputboard(player);
-
-        System.out.println("player " + player);
-    }
-
-    public int inputboard(int player) {
-        char computer;
-        if (player == 'X') {
-            computer = 'O';
-        } else {
-            computer = 'X';
-        }
-        System.out.println("Computer " + computer);
-
-        return computer;
-
-    }
-
-    public static void showBoard() {
-        System.out.println(board[1] + " | " + board[2] + " | " + board[3]);
-        System.out.println("----------");
-        System.out.println(board[4] + " | " + board[5] + " | " + board[6]);
-        System.out.println("----------");
-        System.out.println(board[7] + " | " + board[8] + " | " + board[9]);
-    }
-
-    static char[] getBoard() {
-        for (int i = 1; i < 10; i++) {
-            board[i] = ' ';
-        }
-        return board;
-    }
-}
