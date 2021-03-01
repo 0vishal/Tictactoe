@@ -1,3 +1,4 @@
+
 package com.company;
 
 import java.util.Scanner;
@@ -13,26 +14,25 @@ public class createboard {
 
         Scanner scan = new Scanner(System.in);
 
-     
-        game.moveboard();
-      
+       // game.getBoard();
+        //game.moveboard();
+        //game.showBoard();
+        game.checkplay();
+
+
     }
 
-    public static void moveboard() {
-
+  
+    public void checkplay() {
+        //double random = (Math.random() % 2 + 1 );
+        int random = (int) (1 + (Math.random() * 2));
+        System.out.println("Enter your Choice 1 . Head 2. Tail");
         Scanner sc = new Scanner(System.in);
-
-        System.out.println("Enter the position you want to put X or 0");
-        int position = sc.nextInt();
-        System.out.println("Enter the input X or 0");
-        char value = sc.next().charAt(0);
-        for (int i = 1; i < 10; i++) {
-            if (i == position && board[i] == ' ') {
-                board[i] = value;
-                break;
-            }
-            else {
-                System.out.println("incorrect");
-            }
+        int value = sc.nextInt();
+        if (random == value) {
+            System.out.println(" Player Won starts first");
+        }
+        else {
+            System.out.println("Computer Won starts first");
         }
     }
